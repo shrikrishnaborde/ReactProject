@@ -1,0 +1,5 @@
+1. what is single page application?
+
+2. what is bind keyword?
+
+3. what is the advantage of using annonymous functional assignment?
