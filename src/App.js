@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import styled from 'styled-components';
+import Person from './Person/Person';
+
+
+const StyledButton =  styled.button`
+    background-color: ${props => props.alt ? 'green':'red'};
+    text-align: center;
+
+    &:hover {
+      background-color : salmon;
+    }
+    `;
 
 class App extends Component {
 
@@ -28,7 +39,7 @@ class App extends Component {
 
   toggleNameHandler = () => {
     // const doesShow = this.state.showPerson.slice();
-    const doesShow = [...this.state.showPerson];
+    const doesShow = this.state.showPerson;
     this.setState({
       showPerson : !doesShow
     })
@@ -54,6 +65,10 @@ class App extends Component {
 
   render() {
 
+    // const style ={
+    //   color: 'white',
+    //   backgroundColor: 'black'
+    // };
 
     let persons = null;
 
@@ -72,31 +87,28 @@ class App extends Component {
                 )
               })
             }
-            {/* <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age} 
-              click = {this.switchNameHandler.bind(this,'Ramrao')}
-            />
-            <Person 
-              name={this.state.persons[1].name} 
-              age={this.state.persons[1].age}
-              click = {this.switchNameHandler.bind(this,'Raj')}
-              changed = {this.nameChangedHandler}
-              >My Hobbies: Racing
-            </Person>
-            <Person 
-              name={this.state.persons[2].name} 
-              age={this.state.persons[2].age}
-              click = {this.switchNameHandler.bind(this,'Rajesh')}
-            /> */}
         </div>
       );
+      // style.backgroundColor = 'red';
+    }
+
+    const classes = [];
+    if(this.state.persons.length <=2) {
+      classes.push('Red')
+    }
+    if(this.state.persons.length <=1) {
+      classes.push('Bold')
     }
 
     return (
       <div className="App">
         <h1>React App</h1>
-          <button onClick = {this.toggleNameHandler}>Switch Name</button>
+          <button 
+          className={'Button'}
+          alt = { this.state.showPerson}
+          //style={styledButton}
+          //className={classes.join(' ')}
+          onClick = {this.toggleNameHandler}>Switch Name</button>
           { persons }
       </div>
     );

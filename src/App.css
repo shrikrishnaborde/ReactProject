@@ -2,3 +2,20 @@
   text-align: center;
 }
 
+.Red {
+  background-color: red;
+  text-align: center;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.Button {
+  background-color: red;
+  text-align: center;
+}
+
+.Button :hover {
+  background-color : salmon;
+}
