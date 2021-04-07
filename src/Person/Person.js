@@ -13,18 +13,21 @@ const StyledDiv = styled.div`
     box-shadow: 0 2px 3px lightslategrey;
     `;
 
-
 const Person = (props) => {
-
     
+    const random = Math.random();
+    if(random < 0.7) {
+        throw new Error('error');
+    }
+
     return (
         // <StyledDiv>
         //  <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
         // <p>{props.children}</p>
         // <input type="text" onChange={props.changed} value={props.name}/>
         // </StyledDiv>
-    <div className={classes.Person}>
     
+    <div className={classes.Person}>
         <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
         <p>{props.children}</p>
         <input type="text" onChange={props.changed} value={props.name}/>

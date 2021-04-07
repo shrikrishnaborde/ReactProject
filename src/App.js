@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import styled from 'styled-components';
 import Person from './Person/Person';
-
+import ErrorBoundry from './ErrorBoundry/ErrorBoundry';
 
 const StyledButton =  styled.button`
     background-color: ${props => props.alt ? 'green':'red'};
@@ -80,12 +80,13 @@ class App extends Component {
             {
               this.state.persons.map((person, index) => {
                 return(
-                  <Person 
-                  name={person.name} age={person.age} 
-                  key={person.id}
-                  changed = { (event) => this.switchNameHandler(event,person.id)}
-                  click = { this.deletePersonHander.bind(this,index)}
-                  />
+                  <ErrorBoundry key={person.id}>
+                    <Person 
+                    name={person.name} age={person.age} 
+                    changed = { (event) => this.switchNameHandler(event,person.id)}
+                    click = { this.deletePersonHander.bind(this,index)}
+                    />
+                  </ErrorBoundry>
                 )
               })
             }
