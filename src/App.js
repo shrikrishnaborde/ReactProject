@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import styled from 'styled-components';
 import Person from './Person/Person';
 
@@ -72,6 +72,8 @@ class App extends Component {
 
     let persons = null;
 
+    const btnClasses = [classes.Button];
+
     if(this.state.showPerson) {
       persons = (
         <div>
@@ -90,21 +92,24 @@ class App extends Component {
         </div>
       );
       // style.backgroundColor = 'red';
+      btnClasses.push(classes.Red)
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if(this.state.persons.length <=2) {
-      classes.push('Red')
+      assignedClasses.push(classes.Red)
     }
     if(this.state.persons.length <=1) {
-      classes.push('Bold')
+      assignedClasses.push(classes.Bold)
     }
 
+    btnClasses.push(...assignedClasses);
+
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>React App</h1>
           <button 
-          className={'Button'}
+          className={btnClasses.join(' ')}
           alt = { this.state.showPerson}
           //style={styledButton}
           //className={classes.join(' ')}

@@ -1,6 +1,7 @@
 import React from 'react'
-import './Person.css'
+import classes from './Person.css'
 import styled from 'styled-components';
+
 
 const StyledDiv = styled.div`
     border : 1px solid gray;
@@ -17,17 +18,17 @@ const Person = (props) => {
 
     
     return (
-    // <div className="Person">
-    <StyledDiv>
-         <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
-        <p>{props.children}</p>
-        <input type="text" onChange={props.changed} value={props.name}/>
-
-    </StyledDiv>
-        // <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
+        // <StyledDiv>
+        //  <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
         // <p>{props.children}</p>
         // <input type="text" onChange={props.changed} value={props.name}/>
-    // </div>
+        // </StyledDiv>
+    <div className={classes.Person}>
+    
+        <p onClick={props.click}> i'm {props.name} a person with age : { props.age }</p>
+        <p>{props.children}</p>
+        <input type="text" onChange={props.changed} value={props.name}/>
+    </div>
     )
 }
 

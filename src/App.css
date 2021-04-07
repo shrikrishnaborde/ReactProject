@@ -12,10 +12,14 @@
 }
 
 .Button {
+  background-color: green;
+}
+
+.Button.Red {
   background-color: red;
   text-align: center;
 }
 
-.Button :hover {
+.Button.Red:hover {
   background-color : salmon;
 }
